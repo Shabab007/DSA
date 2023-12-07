@@ -9,4 +9,4 @@ def gcd(num1,num2):
   else:  
     return gcd(num2,num1%num2)
   
-print(gcd(48,-12))
+print(gcd(49,18))
