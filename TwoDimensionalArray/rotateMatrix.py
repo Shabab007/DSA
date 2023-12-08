@@ -12,5 +12,5 @@ def rotateMatrix(matrix):
             matrix[-layer-1][-i-1]= matrix[i][-layer-1]
             matrix[i][-layer-1] = top
    return matrix     
-print(myArray)
+
 print(rotateMatrix(myArray))
