@@ -20,6 +20,16 @@ class SLinkedList:
      while node:
        print(node.value)
        node = node.next  
+
+   def searchValue(self,value):
+     if self.head is None:
+       print("Linked list does not exist")
+     node =self.head
+     while node:
+       if node.value == value:
+         return node.value
+       node = node.next  
+     return "The value does not exist in linked list"
    def inserSLL(self,value,location):
      newNode= Node(value)
      if self.head is None:
@@ -55,3 +65,4 @@ singlyLinkedList.inserSLL(7,2)
 singlyLinkedList.travarseList()
 
 print([node.value for node in singlyLinkedList])
+print(singlyLinkedList.searchValue(33))
