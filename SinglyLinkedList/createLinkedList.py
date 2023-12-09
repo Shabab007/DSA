@@ -13,6 +13,13 @@ class SLinkedList:
        yield node
        node =node.next
 
+   def travarseList(self):
+     if self.head is None:
+       print("Linked list does not exist")
+     node =self.head
+     while node:
+       print(node.value)
+       node = node.next  
    def inserSLL(self,value,location):
      newNode= Node(value)
      if self.head is None:
@@ -45,5 +52,6 @@ singlyLinkedList.inserSLL(4,3)
 singlyLinkedList.inserSLL(5,4)
 singlyLinkedList.inserSLL(1,0)
 singlyLinkedList.inserSLL(7,2)
+singlyLinkedList.travarseList()
 
 print([node.value for node in singlyLinkedList])
