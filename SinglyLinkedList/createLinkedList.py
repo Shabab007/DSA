@@ -30,6 +30,8 @@ class SLinkedList:
          return node.value
        node = node.next  
      return "The value does not exist in linked list"
+   
+
    def inserSLL(self,value,location):
      newNode= Node(value)
      if self.head is None:
@@ -45,7 +47,7 @@ class SLinkedList:
      else:
        tempNode = self.head
        index =0 
-       while index < location -1 and tempNode.next is not None:
+       while index < location -1:
          tempNode = tempNode.next
          index +=1
        nextNode = tempNode.next
@@ -53,16 +55,48 @@ class SLinkedList:
        newNode.next=nextNode
        if tempNode == self.tail:
          self.tail= newNode  
+   
+   def deleteNodeFromList(self,location):
+     if self.head is None:
+        print("The sll does not exist")
+     if location ==0:
+       if self.head== self.tail:
+         self.head = None
+         self.tail = None
+       else:
+         self.head = self.head.next
+     elif location ==-1:
+       if self.head== self.tail:
+         self.head = None
+         self.tail = None
+       else:
+         node= self.head
+         while node is not None:
+           if node.next == self.tail:
+            break
+           node=node.next
+         node.next=None  
+         self.tail=node  
+     else:
+       tempNode=self.head
+       index=0
+       while index < location-1:
+         tempNode = tempNode.next
+         index +=1
+       nextNode = tempNode.next
+       print(tempNode.value)  
+       tempNode.next = nextNode.next
+
+
+
 
 singlyLinkedList = SLinkedList()
 singlyLinkedList.inserSLL(2,1)
-
 singlyLinkedList.inserSLL(3,2)
 singlyLinkedList.inserSLL(4,3)
 singlyLinkedList.inserSLL(5,4)
 singlyLinkedList.inserSLL(1,0)
 singlyLinkedList.inserSLL(7,2)
-singlyLinkedList.travarseList()
-
 print([node.value for node in singlyLinkedList])
-print(singlyLinkedList.searchValue(33))
+singlyLinkedList.deleteNodeFromList(9)
+print([node.value for node in singlyLinkedList])
