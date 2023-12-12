@@ -62,16 +62,56 @@ class circularSLinkedList:
           return tempNode.value
          tempNode =tempNode.next
          if tempNode == self.tail.next:
-           return "the value does not exist on linked list"      
+           return "the value does not exist on linked list"    
+   def removeAllNode(self):
+     self.head = None
+     self.tail.next=None
+     self.tail = None
+   def removeNode(self,location):
+     if self.head is None:
+       return "No list found"
+     else:
+       if location ==0 or location ==-1:
+        if self.head == self.tail:
+            self.head.next=None 
+            self.head = None
+            self.tail = None  
+        elif location == 0:
+         self.head = self.head.next
+         self.tail.next=self.head
+        elif location ==-1:
+         print("kdjf")
+         tempNode= self.head
+         while tempNode:
+           tempNode =tempNode.next
+           if tempNode.next == self.tail:
+            break
+         tempNode.next = self.tail.next
+         self.tail= tempNode
+       else:
+         tempNode= self.head
+         index=0
+         while index < location-1:
+           index+=1
+           tempNode =tempNode.next
+           if tempNode == self.tail.next:
+            return "location not found"
+         nextNode= tempNode.next
+         tempNode.next = nextNode.next
+        
+           
           
      
    
 cirularSll=  circularSLinkedList()  
-cirularSll.csll(1)
-cirularSll.insertCsll(0,0)
-cirularSll.insertCsll(2,-1)
-cirularSll.insertCsll(3,-1)
-cirularSll.insertCsll(4,2)
+cirularSll.csll(0)
+# cirularSll.insertCsll(0,0)
+# cirularSll.insertCsll(2,1)
+# cirularSll.insertCsll(3,1)
+# cirularSll.insertCsll(4,1)
 print([node.value for node in cirularSll])
-cirularSll.travarseList()
-print(cirularSll.findValue(6))
+# cirularSll.travarseList()
+# print(cirularSll.findValue(6))
+
+cirularSll.removeNode(-1)
+print([node.value for node in cirularSll])
