@@ -11,17 +11,67 @@ class circularSLinkedList:
      node=self.head
      while node:
        yield node
-       if node.next == self.head:
-          break
        node =node.next
+       if node == self.tail.next:
+          break
    def csll(self,nodeValue):
      newNode=Node(nodeValue)
      newNode.next=newNode
      self.head=newNode
      self.tail=newNode
      return "circular singly linked list created"
+   def insertCsll(self,value,location):
+      if self.head is None:
+        return "head reference is null"
+      else:
+        newNode=Node(value)
+        if location == 0:
+          newNode.next= self.head.next
+          self.head = newNode
+          self.tail.next=newNode
+        elif location == -1:
+          newNode.next=self.tail.next
+          self.tail.next=newNode
+          self.tail =newNode
+        else:
+          tempNode= self.head
+          count =0 
+          while count < location-1:
+            tempNode=tempNode.next
+            count +=1
+          newNode.next =tempNode.next
+          tempNode.next= newNode
+        return "The node has been inserted"
+   def travarseList(self):
+     if self.head is None:
+       print("No list found")
+     else:
+       tempNode=self.head
+       while tempNode:
+         print(tempNode.value)
+         tempNode =tempNode.next
+         if tempNode == self.tail.next:
+           break
+   def findValue(self,value):
+     if self.head is None:
+       return "No list found"
+     else:
+       tempNode=self.head
+       while tempNode:
+         if tempNode.value == value:
+          return tempNode.value
+         tempNode =tempNode.next
+         if tempNode == self.tail.next:
+           return "the value does not exist on linked list"      
+          
+     
    
 cirularSll=  circularSLinkedList()  
 cirularSll.csll(1)
-
+cirularSll.insertCsll(0,0)
+cirularSll.insertCsll(2,-1)
+cirularSll.insertCsll(3,-1)
+cirularSll.insertCsll(4,2)
 print([node.value for node in cirularSll])
+cirularSll.travarseList()
+print(cirularSll.findValue(6))
