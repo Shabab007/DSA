@@ -24,11 +24,34 @@ class DoublyLinkedList:
        return "No list found"
      else:
        node=Node(value)
-       pass
+       if location == 0: 
+         node.next =self.head
+         self.head.prev = node
+         self.head =node
+       elif location == -1:
+         node.prev =self.tail
+         self.tail.next = node
+         self.tail =node
+       else:
+         count = 0
+         tempNode = self.head
+         while count < location -1:
+           tempNode=tempNode.next
+           count +=1
+         node.next = tempNode.next
+         node.prev = tempNode
+         tempNode.next.prev = node
+         tempNode.next = node
    
 
 
 doublyLL= DoublyLinkedList()
 doublyLL.createLinkedList(5)
+
+print ([node.value for node in doublyLL])
+
+doublyLL.insertNode(0,0)
+doublyLL.insertNode(2,-1)
+doublyLL.insertNode(6,2)
 
 print ([node.value for node in doublyLL])
