@@ -16,11 +16,15 @@ class DoublyLinkedList:
 
    def createLinkedList(self,value):
      node=Node(value)
-     node.next = None
-     node.prev = None
      self.head = node
      self.tail = node
      return "The Dll is created Successfully"
+   def insertNode(self,value,location):
+     if self.head is None:
+       return "No list found"
+     else:
+       node=Node(value)
+       pass
    
 
 
