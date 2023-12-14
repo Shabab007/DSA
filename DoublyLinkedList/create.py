@@ -42,7 +42,28 @@ class DoublyLinkedList:
        if node.value == value:
         return node.value
        node= node.next
-
+   def removeNode(self,location) :
+     if self.head is None:
+       return "No list found"
+     else:
+       if self.head ==self.tail and (location ==0 or location ==-1):
+        print(location)
+        self.head=None   
+        self.tail= None
+       elif location == 0:
+        self.head = self.head.next
+        self.head.prev = None
+       elif location == -1:
+        self.tail = self.tail.prev
+        self.tail.next = None
+       else:
+         tempNode=self.head
+         index= 0
+         while index < location-1:
+           index +=1
+           tempNode = tempNode.next
+         tempNode.next = tempNode.next.next
+         tempNode.next.prev = tempNode 
    def insertNode(self,value,location):
      if self.head is None:
        return "No list found"
@@ -66,6 +87,7 @@ class DoublyLinkedList:
          node.prev = tempNode
          tempNode.next.prev = node
          tempNode.next = node
+     print("The Node has not been found on list")
      
    
 
@@ -81,6 +103,7 @@ doublyLL.insertNode(6,2)
 
 print ([node.value for node in doublyLL])
 
-doublyLL.travarseList()
-doublyLL.ReverseTravarseList()
-print(doublyLL.searchValue(6))
+doublyLL.removeNode(2)
+
+
+print ([node.value for node in doublyLL])
