@@ -64,6 +64,16 @@ class DoublyLinkedList:
            tempNode = tempNode.next
          tempNode.next = tempNode.next.next
          tempNode.next.prev = tempNode 
+   def delDll(self):
+     if self.head is None:
+       return "No list found"
+     else:
+       node = self.head
+       while node:
+         node.prev = None
+         node = node.next
+       self.head = None
+       self.tail = None
    def insertNode(self,value,location):
      if self.head is None:
        return "No list found"
@@ -103,7 +113,7 @@ doublyLL.insertNode(6,2)
 
 print ([node.value for node in doublyLL])
 
-doublyLL.removeNode(2)
+doublyLL.delDll()
 
 
 print ([node.value for node in doublyLL])
