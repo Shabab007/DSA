@@ -19,6 +19,13 @@ class DoublyLinkedList:
      self.head = node
      self.tail = node
      return "The Dll is created Successfully"
+   def travarseList(self):
+     if self.head is None:
+       return "There is no list"
+     node = self.head
+     while node:
+       print(node.value)
+       node= node.next
    def insertNode(self,value,location):
      if self.head is None:
        return "No list found"
@@ -42,6 +49,7 @@ class DoublyLinkedList:
          node.prev = tempNode
          tempNode.next.prev = node
          tempNode.next = node
+     
    
 
 
@@ -55,3 +63,5 @@ doublyLL.insertNode(2,-1)
 doublyLL.insertNode(6,2)
 
 print ([node.value for node in doublyLL])
+
+doublyLL.travarseList()
