@@ -26,6 +26,23 @@ class DoublyLinkedList:
      while node:
        print(node.value)
        node= node.next
+   def ReverseTravarseList(self):
+     if self.head is None:
+       return "There is no list"
+     node = self.tail
+     while node:
+       print(node.value)
+       node= node.prev
+
+   def searchValue(self,value):
+     if self.head is None:
+       return "There is no list"
+     node = self.head
+     while node:
+       if node.value == value:
+        return node.value
+       node= node.next
+
    def insertNode(self,value,location):
      if self.head is None:
        return "No list found"
@@ -65,3 +82,5 @@ doublyLL.insertNode(6,2)
 print ([node.value for node in doublyLL])
 
 doublyLL.travarseList()
+doublyLL.ReverseTravarseList()
+print(doublyLL.searchValue(6))
