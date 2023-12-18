@@ -84,6 +84,17 @@ class CircularDoublyLinkedList:
                 if tempNode is self.tail.next:
                     break
             return "No value found"
+    def deleteWholeList(self):
+        if self.head is None:
+            return "No list found"
+        else:
+            self.tail.next = None
+            tempNode = self.head
+            while tempNode:
+             tempNode.prev = None
+             tempNode = tempNode.next
+            self.head = None
+            self.tail = None
     def insertNode(self,value,location):
         if self.head is None:
             return "No list found"
@@ -126,5 +137,5 @@ circularDll.insertNode(2,2)
 print([node.value for node in circularDll])
 # print(circularDll.searchNode(5))
 
-circularDll.removeNode(2)
+circularDll.deleteWholeList()
 print([node.value for node in circularDll])
