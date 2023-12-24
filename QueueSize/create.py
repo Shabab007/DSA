@@ -34,7 +34,7 @@ class Queue:
       else:
         return self.list[0]
     def delete(self):
-        self.list=[]
+        self.list=None
 
 customQueue = Queue()
 customQueue.enqueue(4)
