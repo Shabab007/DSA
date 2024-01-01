@@ -2,6 +2,11 @@ class Node:
     def __init__(self,value) -> None:
         self.value=value
         self.next=None
+    def __str__(self) -> str:
+        string = str(self.value)
+        if self.next:
+            string +=",".join(self.next)
+        return string
 
 class LinkedList:
     def __init__(self):
