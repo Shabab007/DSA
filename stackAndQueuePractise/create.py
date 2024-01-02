@@ -1,5 +1,8 @@
-from LinkedListStack.LinkedListStack import Node
+import sys
 
+sys.path.append("/Users/shabab/Chores/Projects/python/DSA")
+
+from LinkedListStack.LinkedListStack import Node
 class Stack:
     def __init__(self):
         self.top= None
@@ -18,18 +21,21 @@ class Stack:
     def pop(self):
         if not self.top:
             return None
-        if self.top == self.minNode:
-            self.minNode=self.minNode.next
+        self.minNode=self.minNode.next
         value =self.top.value
         self.top = self.top.next
         return value
     
 customStack =Stack()
 customStack.push(5)
+print("here")
 print(customStack.min())
 customStack.push(4)
 print(customStack.min())
 customStack.push(3)
 print(customStack.min())
 customStack.pop()
+customStack.pop()
+# customStack.pop()
 print(customStack.min())
+# print(customStack.min())
