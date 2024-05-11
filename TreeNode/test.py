@@ -1,2 +1,21 @@
-introduction =" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-print()
+class TreeNode:
+    def __init__(self,data,children=[]):
+        self.data=data
+        self.children = children
+    
+    def __str__(self,level=0):
+        ret="  " * level +str(self.data) + "\n"
+        for child in self.children:
+            ret += child.__str__(level+1)
+        return ret
+    def add_child(self,TreeNode):
+        self.children.append(TreeNode)
+
+
+tree = TreeNode("Drinks",[])
+cold = TreeNode("Cold",[])
+hot = TreeNode("Hot",[])
+
+tree.add_child(cold)
+tree.add_child(hot)
+print(tree)
