@@ -2,23 +2,12 @@ import sys
 
 sys.path.append("/Users/shabab/Chores/Projects/python/DSA")
 
-import QueueLinkedList.create as queue
+from QueueLinkedList import create as queue
 class TreeNode:
   def __init__(self, data):
     self.data = data
     self.leftChild = None
     self.rightChild = None
-
-newBT = TreeNode("Drinks")
-leftChild= TreeNode("Hot")
-rightChild= TreeNode("Cold")
-tea= TreeNode("tea")
-coffee= TreeNode("coffee")
-leftChild.leftChild=tea
-leftChild.rightChild=coffee
-newBT.leftChild=leftChild
-newBT.rightChild=rightChild
-
 
 def preOrderTraversal(rootNode):
   if not rootNode:
@@ -26,18 +15,24 @@ def preOrderTraversal(rootNode):
   print(rootNode.data)
   preOrderTraversal(rootNode.leftChild)
   preOrderTraversal(rootNode.rightChild)
+
+
 def inOrderTraversal(rootNode):
   if not rootNode:
     return
   inOrderTraversal(rootNode.leftChild)
   print(rootNode.data)
   inOrderTraversal(rootNode.rightChild)
+
+
 def postOrderTraversal(rootNode):
   if not rootNode:
     return
   postOrderTraversal(rootNode.leftChild)
   postOrderTraversal(rootNode.rightChild)
   print(rootNode.data)
+
+
 def levelOrderTraversal(rootNode):
   if not rootNode:
     return
@@ -148,9 +143,21 @@ def deleteBT(rootNode):
   rootNode.leftChild = None
   rootNode.rightChild = None
   return "The BT has been deleted successfully"
-# preOrderTraversal(newBT)
 
-# print("InOrderTravarsal")
+newBT = TreeNode("Drinks")
+hot= TreeNode("Hot")
+cold= TreeNode("Cold")
+tea= TreeNode("tea")
+coffee= TreeNode("coffee")
+hot.leftChild=tea
+hot.rightChild=coffee
+newBT.leftChild=hot
+newBT.rightChild=cold
+
+print("PreOrderTraversal")
+preOrderTraversal(newBT)
+
+# print("InOrderTravarsal") 
 # inOrderTraversal(newBT)
 
 # print("PostOrderTravarsal")
@@ -162,8 +169,8 @@ def deleteBT(rootNode):
 # print("search")
 # print(searchNode(newBT,"Cold"))
 
-newNode = TreeNode("Cola")
-print("insert")
+# newNode = TreeNode("Cola")
+# print("insert")
 # print(insertNode(newBT,newNode))
 # # levelOrderTraversal(newBT)
 
@@ -172,5 +179,5 @@ print("insert")
 # deleteDeepestNode(newBT,deepestNode)
 # levelOrderTraversal(newBT)
 
-deleteNodeBT(newBT,"tea")
-levelOrderTraversal(newBT)
+# deleteNodeBT(newBT,"tea")
+# levelOrderTraversal(newBT)

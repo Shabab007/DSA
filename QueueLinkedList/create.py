@@ -52,11 +52,11 @@ class Queue:
        self.linkedList.head=None
        self.linkedList.tail=None
 
-customQueue = Queue()
-customQueue.enqueue(4)
-customQueue.enqueue(5)
-customQueue.enqueue(6)
+# customQueue = Queue()
+# customQueue.enqueue(4)
+# customQueue.enqueue(5)
+# customQueue.enqueue(6)
+# # print(customQueue)
+# customQueue.dequeue()
+# # print(customQueue.peek())
 # print(customQueue)
-customQueue.dequeue()
-# print(customQueue.peek())
-print(customQueue)
