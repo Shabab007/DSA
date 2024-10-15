@@ -1,3 +1,5 @@
+import math
+
 def buble_sort(array):
     for i in range(len(array)-1):
         for j in range(len(array)-i-1):
@@ -24,6 +26,27 @@ def insertion_sort(list):
                j = j-1
              list[j+1] = key
         print(list)
+        return list
 
-list = [1,2,6,4,5,1,8,9,12,12,14,16,11,20]
-insertion_sort(list)
+def bucket_sort(list):
+     numbersOfBucket = round(math.sqrt(len(list)))
+     maxValue = max(list)
+     arr= []
+     for i in range(numbersOfBucket):
+          arr.append([])
+     
+     for j in list:
+          index_b = math.ceil(j*numbersOfBucket/maxValue)
+          arr[index_b-1].append(j)
+     for i in range(numbersOfBucket):
+          arr[i]=insertion_sort(arr[i])
+     
+     k = 0
+     for i in range(numbersOfBucket):
+          for j in range(len(arr[i])):
+               list[k]= arr[i][j]
+               k+=1
+     print(list)
+
+list = [1,2,4,6,3,1,8,9,12,12,14,16,11,20]
+bucket_sort(list)
