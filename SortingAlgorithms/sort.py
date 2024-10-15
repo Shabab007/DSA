@@ -15,5 +15,15 @@ def selection_sort(list):
              list[i],list[min_index] = list[min_index], list[i] 
         print(list)
 
-list = [1,2,4,5,6,7,8,9,12,12,14,16,17,20]
-selection_sort(list)
+def insertion_sort(list): 
+        for i in range(1,len(list)):
+             key = list[i]
+             j= i-1
+             while j>=0 and key < list[j]:
+               list[j+1]= list[j] 
+               j = j-1
+             list[j+1] = key
+        print(list)
+
+list = [1,2,6,4,5,1,8,9,12,12,14,16,11,20]
+insertion_sort(list)
