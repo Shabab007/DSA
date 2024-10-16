@@ -48,5 +48,45 @@ def bucket_sort(list):
                k+=1
      print(list)
 
+def merge(list, left, middle,right ):
+     n1= middle-left+1
+     n2= right-middle
+
+     L=[0]*(n1)
+     R=[0]*(n2)
+     for i in range(0,n1):
+          L[i]=list[left+i]
+     for j  in range(0,n2):
+          R[j]=list[middle+1+j]
+     i =0 
+     j = 0 
+     k = left
+     while i < n1 and j < n2:
+         if L[i] <= R[j]:
+              list[k]= L[i]
+              i+=1
+         else:
+              list[k]=R[j]
+              j+=1
+         k+=1
+
+     while i < n1:
+      list[k] = L[i]
+      i+=1
+      k+=1
+
+     while j < n1 and j < n2:
+      list[k] = R[j]
+      j+=1
+      k+=1
+
+def merge_sort(list,l,r):
+     if l < r:
+          m=(l+(r-1))//2 
+          merge_sort(list, l,m)
+          merge_sort(list, m+1,r)
+          merge(list,l,m,r)
+     return list
+
 list = [1,2,4,6,3,1,8,9,12,12,14,16,11,20]
-bucket_sort(list)
+print(merge_sort(list,0,13)) 
